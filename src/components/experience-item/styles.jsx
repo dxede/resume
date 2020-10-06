@@ -2,6 +2,9 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 export const ExperienceItemContainer = styled.div`
+  display: grid;
+  grid-template-areas: "header header" ". description";
+  grid-template-columns: 4em auto;
   text-align: left;
   margin: 2em auto;
   cursor: ${(props) => props.noAnimation ? null : 'pointer'};
@@ -10,6 +13,7 @@ export const ExperienceItemContainer = styled.div`
 export const ExperienceItemHeader = styled(motion.div)`
   display: grid;
   grid-template-areas: "image text";
+  grid-area: header;
   grid-template-columns: 4em auto;
   align-items: center;
 `;
@@ -48,13 +52,14 @@ export const ExperienceItemCompanyLogoImage = styled.img`
 `;
 
 export const ExperienceItemDescriptionItemsContainer = styled(motion.div)`
+  grid-area: description;
   height: ${(props) => props.noAnimation ? null : 0};
   opacity: ${(props) => props.noAnimation ? null : 0};
   display: ${(props) => props.noAnimation ? null : 'none'};
 `;
 
 export const ExperienceItemDescriptionItemsList = styled.ul`
-  padding-inline-start: 5em;
+  padding-inline-start: 1em;
 `;
 
 export const ExperienceItemDescriptionItemListEntry = styled.li`
