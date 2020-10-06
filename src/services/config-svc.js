@@ -180,7 +180,7 @@ class ConfigSvc extends ServiceBase {
 
   get educationData () {
     return {
-      title: 'Bsc in Honors Geomatics with Computer Science Minor',
+      title: 'BSc in Honors Geomatics with Computer Science Minor',
       company: 'University of Waterloo',
       logo: 'UWaterlooLogo',
       dateString: 'Sept. 2015 - Apr. 2020',

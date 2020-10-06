@@ -15,21 +15,23 @@ import {
   ExperienceItemDescriptionItemListEntry
 } from './styles';
 
-export default function ExperienceItem({item, noAnimation}) {
+export default function ExperienceItem({item, noAnimation, center}) {
   const [isShowingDescription, setIsShowingDescription] = useState(false);
   const {title, company, dateString, descriptionItems, logo } = item;
 
   return (
     <ExperienceItemContainer
+      center={center}
       noAnimation={noAnimation}
       onMouseEnter={noAnimation ? null : () => setIsShowingDescription(true)}
       onMouseLeave={noAnimation ? null : () => setIsShowingDescription(false)}
     >
       <ExperienceItemHeader
+        center={center}
         animate={isShowingDescription ? 'emphasis' : 'normal'}
         variants={headerVariants}
       >
-        <ExperienceItemCompanyLogoContainer>
+        <ExperienceItemCompanyLogoContainer center={center}>
           <ExperienceItemCompanyLogoImage src={assetSvc.get(logo)} />
         </ExperienceItemCompanyLogoContainer>
 

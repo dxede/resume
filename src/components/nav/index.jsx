@@ -46,6 +46,7 @@ const NavContainer = styled(motion.div)`
 const NavRightContainer = styled.div`
   display: flex;
   align-items: center;
+  justify-content: flex-end;
 
   & > * {
     margin: 0;

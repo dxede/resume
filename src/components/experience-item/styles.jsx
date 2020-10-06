@@ -4,18 +4,19 @@ import { motion } from 'framer-motion';
 export const ExperienceItemContainer = styled.div`
   display: grid;
   grid-template-areas: "header header" ". description";
-  grid-template-columns: 4em auto;
-  text-align: left;
+  grid-template-columns: ${(props) => props.center ? null : '4em auto'};
+  text-align: ${(props) => props.center ? 'center' : 'left'};
   margin: 2em auto;
   cursor: ${(props) => props.noAnimation ? null : 'pointer'};
 `;
 
 export const ExperienceItemHeader = styled(motion.div)`
   display: grid;
-  grid-template-areas: "image text";
+  grid-template-areas: ${(props) => props.center ? `"image" "text"` : `"image text"`};
   grid-area: header;
-  grid-template-columns: 4em auto;
+  grid-template-columns: ${(props) => props.center ? null : `4em auto`};
   align-items: center;
+  justify-items: ${(props) => props.center ? 'center' : null};
 `;
 
 export const ExperienceItemHeaderText = styled.div`
@@ -43,6 +44,7 @@ export const ExperienceItemDate = styled.p`
 export const ExperienceItemCompanyLogoContainer = styled.div`
   grid-area: image;
   width: ${(props) => props.width || '3em'};
+  margin-bottom: ${(props) => props.center ? '1em' : null};
 `;
 
 export const ExperienceItemCompanyLogoImage = styled.img`
