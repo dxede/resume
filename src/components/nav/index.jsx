@@ -40,6 +40,7 @@ const NavContainer = styled(motion.div)`
   top: 0;
   width: calc(100vw - 1em);
   display: ${(props) => props.vanish ? 'grid' : 'grid'};
+  z-index: ${styleSvc.z.nav}
 `;
 
 const NavRightContainer = styled.div`

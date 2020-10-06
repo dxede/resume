@@ -18,14 +18,16 @@ export const ExperienceItemHeaderText = styled.div`
   grid-area: text;
 `;
 
-export const ExperienceItemTitle = styled.div`
+export const ExperienceItemTitle = styled.p`
   font-weight: bold;
   font-size: 1.15em;
+  margin: 0;
 `;
 
-export const ExperienceItemCompany = styled.div`
+export const ExperienceItemCompany = styled.p`
   font-weight: 300;
   line-height: 1.5;
+  margin: 0;
 `;
 
 export const ExperienceItemCompanyLogoContainer = styled.div`
