@@ -6,10 +6,11 @@ const SectionContainer = styled.div`
   padding: 4em 2em;
 `;
 
-export default function Section ({ title }) {
+export default function Section ({ title, children }) {
   return (
     <SectionContainer>
       <SectionHeader>{title}</SectionHeader>
+      {children}
     </SectionContainer>
   )
 }

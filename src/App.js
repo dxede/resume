@@ -1,31 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
 import Nav from './components/nav';
 import Banner from './components/banner';
-import Section from './components/section';
 import './App.css';
+import SkillsSection from './sections/skills';
+import ExperienceSection from './sections/experience';
+import EducationSection from './sections/education';
 
 function App() {
   return (
     <div className="App">
       <Nav />
       <Banner />
-      <Section title="Skills" />
-      <Section title="Experience" />
-      <Section title="Education" />
+      <SkillsSection />
+      <ExperienceSection />
+      <EducationSection />
+
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Banner />
       </header>
     </div>
   );
