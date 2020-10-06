@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
+import { motion, useViewportScroll } from 'framer-motion';
 import useScrollPosition from '../../hooks/useScrollPosition';
 import styleSvc from '../../services/style-svc';
 import EdedeAvatar from '../edede-avatar';
@@ -23,6 +23,30 @@ const navContainerVariant = {
   },
 };
 
+const nameVariant = {
+  left: {
+    x: `-45%`,
+    y: 36,
+    opacity: 0,
+    transition: {
+      x: { stiffness: 1000, velocity: -100 },
+      y: { stiffness: 1000, velocity: -100 },
+      opacity: {
+        delay: 0.05
+      }
+    }
+  },
+
+  normal: {
+    x: 0,
+    y: 0,
+    opacity: 1,
+    transition: {
+      x: { stiffness: 1000, velocity: -1000 },
+    }
+  }
+};
+
 /**
  * This bar is used when the page is scrolled.
  */
@@ -34,7 +58,7 @@ const NavContainer = styled(motion.div)`
   text-align: left;
   align-items: center;
   grid-template-columns: 80% 19%;
-  background: #fbfbfb;
+  /* background: ${styleSvc.colors.nav}; */
   gap: 1%;
   position: fixed;
   top: 0;
@@ -70,12 +94,16 @@ export default function Nav() {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useScrollPosition(
-    ({ currentPosition: { y } }) => setIsScrolled(y > 10)
+    ({ currentPosition: { y } }) => setIsScrolled(y > 25)
   );
 
   return (
     <Fragment>
-      <BannerNavContainer>
+      <BannerNavContainer
+        x={0}
+        animate={isScrolled ? 'left' : 'normal'} 
+        variants={nameVariant}
+      >
         Edede Oiwoh
       </BannerNavContainer>
       
@@ -86,7 +114,7 @@ export default function Nav() {
       >
         Edede Oiwoh
         <NavRightContainer>
-          <SocialSharing width="0.5em" gap="0.18em" />
+          <SocialSharing width="0.4em" gap="0.18em" />
           <EdedeAvatar width="1.2em" />
         </NavRightContainer>
       </NavContainer>

@@ -6,11 +6,12 @@ import './App.css';
 import SkillsSection from './sections/skills';
 import ExperienceSection from './sections/experience';
 import EducationSection from './sections/education';
+import styleSvc from './services/style-svc';
 
 const Footer = styled.footer`
   margin: 1em 0 0;
   padding: 1em;
-  background: #05233e;
+  background: ${styleSvc.colors.footer};
 `;
 
 function App() {
