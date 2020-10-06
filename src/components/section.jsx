@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import SectionHeader from './section-header';
 
 const SectionContainer = styled.div`
-  padding: 3em 2em;
+  padding: 1em 2em;
 `;
 
 const SectionBody = styled.div`

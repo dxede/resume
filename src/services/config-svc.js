@@ -1,4 +1,5 @@
 import ServiceBase from './_base-svc';
+import simpleIcons from 'simple-icons';
 
 const experienceData = {
   stringmasters: {
@@ -74,6 +75,71 @@ const experienceData = {
   },
 }
 
+const skillData = [
+  {
+    label: 'JavaScript',
+    siteUrl: `https://javascript.info`,
+    type: 'language'
+  },
+  {
+    label: 'TypeScript',
+    siteUrl: `https://www.typescriptlang.org`,
+    type: 'language'
+  },
+  {
+    label: 'Python',
+    siteUrl: `https://www.python.org`,
+    type: 'language'
+  },
+  {
+    label: 'React',
+    siteUrl: `https://reactjs.org`,
+    type: 'frontend-framework'
+  },
+  {
+    label: 'Angular',
+    siteUrl: `https://angular.io`,
+    type: 'frontend-framework'
+  },
+  {
+    label: 'Ember.js',
+    siteUrl: `https://emberjs.com`,
+    type: 'frontend-framework'
+  },
+  {
+    label: 'Node.js',
+    siteUrl: `https://nodejs.org/en/`,
+    type: 'server-side'
+  },
+  {
+    label: 'MongoDB',
+    siteUrl: `https://www.mongodb.com`,
+    type: 'database'
+  },
+  {
+    label: 'SQLite',
+    siteUrl: `https://www.sqlite.org/index.html`,
+    type: 'database'
+  },
+  {
+    label: 'Docker',
+    siteUrl: `https://www.docker.com`,
+    type: 'deployment'
+  },
+  {
+    label: 'Digital Ocean',
+    name: 'DigitalOcean',
+    siteUrl: `https://www.digitalocean.com`,
+    type: 'cloud'
+  },
+  {
+    label: 'AWS',
+    name: 'Amazon AWS',
+    siteUrl: `https://aws.amazon.com`,
+    type: 'cloud'
+  }
+];
+
 class ConfigSvc extends ServiceBase {
   /**
    * Social Sharing Links used site wide
@@ -113,6 +179,18 @@ class ConfigSvc extends ServiceBase {
       logo: 'UWaterlooLogo',
       dateString: 'Sept. 2015 - Apr. 2020',
     };
+  }
+
+  get skillsData () {
+    return skillData.map(s => {
+      const icon = simpleIcons.get(s.name || s.label) || {};
+      
+      return {
+        ...s,
+        logo: this.makeSimpleIconURL(icon.slug),
+        ...icon
+      }
+    });
   }
 }
 
