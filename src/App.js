@@ -1,10 +1,18 @@
 import React from 'react';
 import logo from './logo.svg';
+import Nav from './components/nav';
+import Banner from './components/banner';
+import Section from './components/section';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
+      <Nav />
+      <Banner />
+      <Section title="Skills" />
+      <Section title="Experience" />
+      <Section title="Education" />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
