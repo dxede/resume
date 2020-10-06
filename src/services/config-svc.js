@@ -1,15 +1,16 @@
-const { default: ServiceBase } = require("./_base-svc");
+import ServiceBase from './_base-svc';
 
 const experienceData = {
   stringmasters: {
     title: 'Full Stack Developer (Independent Contractor)',
     company: 'String Masters - Toronto, ON (Remote)',
     dateString: 'Sept. 2019 - Sept. 2020',
+    logo: 'SMLogo',
     descriptionItems: [
       'Maintained existing codebase for a customer facing application using EmberJS.',
       'Maintained existing codebase for a backend server using Typescript.',
       'Implemented new features based on business requirements using EmberJS and Typescript.',
-      'Implemented ,payment service using Typescript, Javascript and Stripe API.'
+      'Implemented payment service using Typescript, Javascript and Stripe API.'
     ],
     from: null,
     till: null,
@@ -18,6 +19,7 @@ const experienceData = {
     title: 'Front End Developer (Independent Contractor)',
     company: 'RouteThis - Waterloo, ON (Remote)',
     dateString: 'Apr. 2020 - Aug. 2020',
+    logo: 'RouteThisLogo',
     descriptionItems: [
       'Designed and implemented a new customer facing dashboard using React and Socket.io.',
       'Built and maintained a React component library for the engineering team.',
@@ -30,6 +32,7 @@ const experienceData = {
     title: 'Full Stack Developer',
     company: 'RouteThis - Waterloo, ON (Remote)',
     dateString: 'Jan. 2019 - Apr. 2019',
+    logo: 'RouteThisLogo',
     descriptionItems: [
       'Implemented new dashboard and API features using Vanilla JS and Express.',
       'Developed customer facing web application using React Express, and MongoDB.',
@@ -45,6 +48,7 @@ const experienceData = {
     title: 'Angular Developer',
     company: 'TD - Waterloo, ON',
     dateString: 'Apr. 2018 - Aug. 2018',
+    logo: 'TDLogo',
     descriptionItems: [
       'Maintained Wealth Management Web Portal for US customers, using AngularJS.',
       'Fixed defects, tracked with JIRA by implementing or optimizing functions and modules.',
@@ -58,6 +62,7 @@ const experienceData = {
     title: 'Developer & Designer',
     company: 'Maple Leaf Foods - Mississauga, ON',
     dateString: 'Sept. 2017 - Dec. 2017',
+    logo: 'MLFLogo',
     descriptionItems: [
       'Built 3 rapid prototypes for internal web applications using Angular 4 and SQLite.',
       'Developed ChatBot using Microsoft Bot framework and NodeJS to optimize retrieval of information from a collection of PDF documents with content about company policy.',
