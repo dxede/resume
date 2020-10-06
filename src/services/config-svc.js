@@ -77,12 +77,12 @@ const experienceData = {
 
 const skillData = [
   {
-    label: 'JavaScript',
+    label: 'Javascript',
     siteUrl: `https://javascript.info`,
     type: 'language'
   },
   {
-    label: 'TypeScript',
+    label: 'Typescript',
     siteUrl: `https://www.typescriptlang.org`,
     type: 'language'
   },
@@ -105,6 +105,11 @@ const skillData = [
     label: 'Ember.js',
     siteUrl: `https://emberjs.com`,
     type: 'frontend-framework'
+  },
+  {
+    label: 'Sass',
+    siteUrl: `http://sass-lang.com/`,
+    type: 'css-framework'
   },
   {
     label: 'Node.js',
@@ -135,9 +140,10 @@ const skillData = [
   {
     label: 'AWS',
     name: 'Amazon AWS',
+    hex: 'FF9900',
     siteUrl: `https://aws.amazon.com`,
     type: 'cloud'
-  }
+  },
 ];
 
 class ConfigSvc extends ServiceBase {
@@ -186,9 +192,9 @@ class ConfigSvc extends ServiceBase {
       const icon = simpleIcons.get(s.name || s.label) || {};
       
       return {
+        ...icon,
         ...s,
         logo: this.makeSimpleIconURL(icon.slug),
-        ...icon
       }
     });
   }

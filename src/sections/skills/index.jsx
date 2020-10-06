@@ -4,15 +4,23 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import configSvc from '../../services/config-svc';
 
-const SkillsContainer = styled.div`
+const SkillsList = styled.div`
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
 `;
 
-const SkillImageContainer = styled.div`
-  width: 3em;
+const SkillContainer = styled(motion.div)`
+  display: grid;
   margin: 0 1em 1em;
+  justify-items: center;
+`;
+
+const SkillLabel = styled(motion.p)`
+`;
+
+const SkillImageContainer = styled(motion.div)`
+  width: 3em;
 
   svg {
     fill: ${(props) => props.fill}
@@ -22,15 +30,21 @@ const SkillImageContainer = styled.div`
 export default function SkillsSection() {
   return (
     <Section title="Skills">
-      <SkillsContainer>
+      <SkillsList>
         {configSvc.skillsData.map((sd, indx) => (
-          <SkillImageContainer 
+          <SkillContainer
             key={indx} 
-            dangerouslySetInnerHTML={{__html: sd.svg}}
-            fill={`#${sd.hex}`}
-          />
+          >
+            <SkillImageContainer 
+              whileHover={{ scale: 1.15 }}
+              transition={{ type: 'spring' }}
+              dangerouslySetInnerHTML={{__html: sd.svg}}
+              fill={`#${sd.hex}`}
+            />
+            <SkillLabel>{sd.label}</SkillLabel>
+          </SkillContainer>
         ))}
-      </SkillsContainer>
+      </SkillsList>
     </Section>
   )
 }

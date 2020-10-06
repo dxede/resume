@@ -6,7 +6,7 @@ import configSvc from '../services/config-svc';
 export default function EducationSection() {
   return (
     <Section title="Education">
-      <ExperienceItem item={configSvc.educationData} />
+      <ExperienceItem noAnimation item={configSvc.educationData} />
     </Section>
   )
 }
