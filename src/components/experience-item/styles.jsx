@@ -30,6 +30,12 @@ export const ExperienceItemCompany = styled.p`
   margin: 0;
 `;
 
+export const ExperienceItemDate = styled.p`
+  font-weight: 300;
+  font-size: 0.9em;
+  margin: 0;
+`;
+
 export const ExperienceItemCompanyLogoContainer = styled.div`
   grid-area: image;
   width: ${(props) => props.width || '3em'};
@@ -47,7 +53,9 @@ export const ExperienceItemDescriptionItemsContainer = styled(motion.div)`
   display: ${(props) => props.noAnimation ? null : 'none'};
 `;
 
-export const ExperienceItemDescriptionItemsList = styled.ul``;
+export const ExperienceItemDescriptionItemsList = styled.ul`
+  padding-inline-start: 5em;
+`;
 
 export const ExperienceItemDescriptionItemListEntry = styled.li`
   line-height: 1.5;

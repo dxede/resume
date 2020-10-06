@@ -9,6 +9,7 @@ import {
   ExperienceItemHeaderText,
   ExperienceItemTitle,
   ExperienceItemCompany,
+  ExperienceItemDate,
   ExperienceItemDescriptionItemsContainer,
   ExperienceItemDescriptionItemsList,
   ExperienceItemDescriptionItemListEntry
@@ -16,7 +17,7 @@ import {
 
 export default function ExperienceItem({item, noAnimation}) {
   const [isShowingDescription, setIsShowingDescription] = useState(false);
-  const {title, company, descriptionItems, logo } = item;
+  const {title, company, dateString, descriptionItems, logo } = item;
 
   return (
     <ExperienceItemContainer
@@ -35,6 +36,7 @@ export default function ExperienceItem({item, noAnimation}) {
         <ExperienceItemHeaderText>
           <ExperienceItemTitle>{title}</ExperienceItemTitle>
           <ExperienceItemCompany>{company}</ExperienceItemCompany>
+          <ExperienceItemDate>{dateString}</ExperienceItemDate>
         </ExperienceItemHeaderText>
       </ExperienceItemHeader>
 
@@ -44,7 +46,7 @@ export default function ExperienceItem({item, noAnimation}) {
         noAnimation={noAnimation}
       >
         <ExperienceItemDescriptionItemsList>
-          {descriptionItems.map((di, indx) => 
+          {(descriptionItems || []).map((di, indx) => 
             <ExperienceItemDescriptionItemListEntry key={indx}>
               {di}
             </ExperienceItemDescriptionItemListEntry>

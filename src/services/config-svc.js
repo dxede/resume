@@ -106,8 +106,13 @@ class ConfigSvc extends ServiceBase {
     return experienceData;
   }
 
-  getExperienceById (id) {
-    return experienceData[id];
+  get educationData () {
+    return {
+      title: 'Bsc in Honors Geomatics with Computer Science Minor',
+      company: 'University of Waterloo',
+      logo: 'UWaterlooLogo',
+      dateString: 'Sept. 2015 - Apr. 2020',
+    };
   }
 }
 
