@@ -5,7 +5,7 @@ import styleSvc from '../services/style-svc';
 const SectionHeaderContainer = styled.div`
   font-size: 2em;
   font-family: ${styleSvc.fonts.headerFont};
-  padding-bottom: 1em;
+  padding-bottom: 0.5em;
   border-bottom: solid;
   margin: auto; 
 `;
