@@ -61,7 +61,7 @@ const NavContainer = styled(motion.div)`
   display: ${(props) => props.vanish ? 'grid' : 'grid'};
   z-index: ${props => props.theme.z.nav};
 
-  @media (max-width: 996px) {
+  @media (max-width: 1200px) {
     background: ${props => props.theme.colors.nav};
   }
 
