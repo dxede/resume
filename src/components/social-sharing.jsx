@@ -4,14 +4,18 @@ import configSvc from '../services/config-svc';
 import { motion } from 'framer-motion';
 
 const socialRowVariant = {
-  open: {
+  show: {
     opacity: 1,
+    transition: { staggerChildren: 0.25, delayChildren: 0.0025 }
+  },
+  hide: {
+    opacity: 0,
     transition: { staggerChildren: 0.5, delayChildren: 0.0025 }
   }
 };
 
 const socialIconVariant = {
-  open: {
+  show: {
     opacity: 1,
     y: 0,
     x: 0,
@@ -43,8 +47,7 @@ function SocialIcon ({ gap, linkTo, name, width }) {
   
   return (
     <SocialIconContainer 
-      y={10}
-      x={2} 
+      y={-10}
       variants={socialIconVariant} 
       gap={gap} 
       href={linkTo}
@@ -54,9 +57,9 @@ function SocialIcon ({ gap, linkTo, name, width }) {
   )
 }
 
-export default function SocialSharing({ width, gap }) {
+export default function SocialSharing({ width, gap, animate = 'show', ...rest }) {
  return (
-    <SocialRow variants={socialRowVariant} animate="open">
+    <SocialRow variants={socialRowVariant} animate={animate} { ...rest }>
       {configSvc.socialSharing.map((social, indx) => 
         <SocialIcon key={indx} width={width} gap={gap} name={social.name} linkTo={social.linkTo} />)
       }

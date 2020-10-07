@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import styled from 'styled-components';
-import { motion, useViewportScroll } from 'framer-motion';
+import { motion } from 'framer-motion';
 import useScrollPosition from '../../hooks/useScrollPosition';
 import styleSvc from '../../services/style-svc';
 import EdedeAvatar from '../edede-avatar';
@@ -11,7 +11,7 @@ const navContainerVariant = {
     y: 0,
     opacity: 1,
     transition: {
-      y: { stiffness: 1000, velocity: -100 }
+      y: { stiffness: 1000, velocity: -100 },
     }
   },
   hide: {
@@ -23,26 +23,23 @@ const navContainerVariant = {
   },
 };
 
-const nameVariant = {
-  left: {
-    x: `-45%`,
-    y: 36,
+const imageVariant = {
+  hidden: {
+    y: `-250%`,
     opacity: 0,
     transition: {
-      x: { stiffness: 1000, velocity: -100 },
       y: { stiffness: 1000, velocity: -100 },
-      opacity: {
-        delay: 0.05
-      }
     }
   },
 
-  normal: {
-    x: 0,
+  shown: {
     y: 0,
     opacity: 1,
     transition: {
-      x: { stiffness: 1000, velocity: -1000 },
+      style: 'spring',
+      opacity: {
+        delay: 0.01
+      }
     }
   }
 };
@@ -91,31 +88,41 @@ const BannerNavContainer = styled(motion.div)`
 `;
 
 export default function Nav() {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [isScrolledPastName, setNameScrolled] = useState(false);
+  const [isScrolledPastImage, setImageScrolled] = useState(false);
+  const [isScrolledPastSocialIcons, setSocialIconsScrolled] = useState(false);
 
   useScrollPosition(
-    ({ currentPosition: { y } }) => setIsScrolled(y > 25)
+    ({ currentPosition: { y } }) => {
+      setNameScrolled(y > 25);
+      setImageScrolled(y > 350);
+      setSocialIconsScrolled(y > 420);
+    }
   );
 
   return (
     <Fragment>
-      <BannerNavContainer
-        x={0}
-        animate={isScrolled ? 'left' : 'normal'} 
-        variants={nameVariant}
-      >
+      <BannerNavContainer>
         Edede Oiwoh
       </BannerNavContainer>
       
       <NavContainer 
         y='-100%'
-        animate={isScrolled ? 'show' : 'hide'}
+        animate={isScrolledPastName ? 'show' : 'hide'}
         variants={navContainerVariant}
       >
         Edede Oiwoh
         <NavRightContainer>
-          <SocialSharing width="0.4em" gap="0.18em" />
-          <EdedeAvatar width="1.2em" />
+          <SocialSharing 
+            width="0.4em" 
+            gap="0.18em"
+            animate={isScrolledPastSocialIcons ? 'show' : 'hide'}
+          />
+          <EdedeAvatar 
+            width="1.2em"
+            animate={isScrolledPastImage ? 'shown' : 'hidden'}
+            variants={imageVariant}
+          />
         </NavRightContainer>
       </NavContainer>
     </Fragment>

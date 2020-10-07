@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 import EdedeOiwohImage from '../assets/edede-oiwoh.jpg';
 
-const AvatarImageContainer = styled.div.attrs(props => {
+const AvatarImageContainer = styled(motion.div).attrs(props => {
   const avatarSize = props.width || '10em';
   return {
     width: avatarSize,
@@ -22,9 +23,9 @@ const AvatarImage = styled.img`
   width: 100%;
 `;
 
-export default function EdedeAvatar({ width, height }) {
+export default function EdedeAvatar({ width, height, ...rest }) {
   return (
-    <AvatarImageContainer width={width} height={height}>
+    <AvatarImageContainer { ...rest } width={width} height={height}>
       <AvatarImage alt='Edede Oiwoh' src={EdedeOiwohImage} />
     </AvatarImageContainer>
   )
