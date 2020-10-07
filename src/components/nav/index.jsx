@@ -2,7 +2,6 @@ import React, { Fragment, useState } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import useScrollPosition from '../../hooks/useScrollPosition';
-import styleSvc from '../../services/style-svc';
 import EdedeAvatar from '../edede-avatar';
 import SocialSharing from '../social-sharing';
 
@@ -49,7 +48,7 @@ const imageVariant = {
  */
 const NavContainer = styled(motion.div)`
   padding: 0.5em;
-  font-family: ${styleSvc.fonts.headerFont};
+  font-family: ${props => props.theme.fonts.headerFont};
   font-size: 3em;
   display: grid;
   text-align: left;
@@ -60,10 +59,10 @@ const NavContainer = styled(motion.div)`
   top: 0;
   width: calc(100vw - 1em);
   display: ${(props) => props.vanish ? 'grid' : 'grid'};
-  z-index: ${styleSvc.z.nav};
+  z-index: ${props => props.theme.z.nav};
 
   @media (max-width: 996px) {
-    background: ${styleSvc.colors.nav};
+    background: ${props => props.theme.colors.nav};
   }
 
   @media (max-width: 390px) {
@@ -89,7 +88,7 @@ const NavRightContainer = styled.div`
 const BannerNavContainer = styled(motion.div)`
   height: 64px;
   padding: 0.8em;
-  font-family: ${styleSvc.fonts.headerFont};
+  font-family: ${props => props.theme.fonts.headerFont};
   font-size: 3em;
   display: grid;
   align-items: center;

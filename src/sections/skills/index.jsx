@@ -42,8 +42,7 @@ const SkillContainer = styled(motion.div)`
   opacity: 0;
 `;
 
-const SkillLabel = styled(motion.p)`
-`;
+const SkillLabel = styled.p``;
 
 const SkillImageContainer = styled(motion.div)`
   width: 3em;

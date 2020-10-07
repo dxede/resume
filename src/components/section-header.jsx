@@ -1,12 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import styleSvc from '../services/style-svc';
 
 const SectionHeaderContainer = styled.div`
   font-size: 2em;
-  font-family: ${styleSvc.fonts.headerFont};
+  font-family: ${props => props.theme.fonts.headerFont};
   padding-bottom: 0.5em;
-  border-bottom: solid;
+  border-bottom: ${props => `solid 0.5px ${props.theme.colors.separator || ''}`};
   margin: auto; 
 `;
 

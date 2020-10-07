@@ -39,9 +39,13 @@ const SocialIconContainer = styled(motion.a)`
   width: ${(props) => props.width || '1.2em'};
   opacity: 0;
 
-  & > span > svg:hover {
-    fill: ${(props) => `#${props.logoColor}`};
-    transition: fill 200ms;
+  & > span > svg {
+    fill: ${props => props.theme.colors.color};
+
+    &:hover {
+      fill: ${(props) => `#${props.logoColor}`};
+      transition: fill 200ms;
+    }
   }
 `;
 

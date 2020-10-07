@@ -3,18 +3,22 @@ import { motion } from 'framer-motion';
 
 export const ExperienceItemContainer = styled.div`
   display: grid;
-  grid-template-areas: "header header" ". description";
-  grid-template-columns: ${(props) => props.center ? null : '4em auto'};
+  grid-template-areas: ${(props) => props.center ? '"image" "header"' : '"image header" "image description"'};
+  grid-template-columns: ${(props) => props.center ? 'auto' : '15em auto'};
   text-align: ${(props) => props.center ? 'center' : 'left'};
   margin: 2em auto;
+  justify-content: ${(props) => props.center ? 'center' : null};
   cursor: ${(props) => props.noAnimation ? null : 'pointer'};
+
+  @media (max-width: 768px) {
+    grid-template-columns: ${(props) => props.center ? 'auto' : '4em auto'};
+    grid-column-gap: 1em;
+    grid-template-areas: ${(props) => props.center ? '"image" "header"' : '"image header" ". description"'};
+  }
 `;
 
 export const ExperienceItemHeader = styled(motion.div)`
-  display: grid;
-  grid-template-areas: ${(props) => props.center ? `"image" "text"` : `"image text"`};
   grid-area: header;
-  grid-template-columns: ${(props) => props.center ? null : `4em auto`};
   align-items: center;
   justify-items: ${(props) => props.center ? 'center' : null};
 `;
@@ -43,8 +47,13 @@ export const ExperienceItemDate = styled.p`
 
 export const ExperienceItemCompanyLogoContainer = styled.div`
   grid-area: image;
-  width: ${(props) => props.width || '3em'};
+  width: ${(props) => props.width || '8em'};
+  margin: auto;
   margin-bottom: ${(props) => props.center ? '1em' : null};
+
+  @media (max-width: 768px) {
+    width: ${(props) => props.width || '3em'};
+  }
 `;
 
 export const ExperienceItemCompanyLogoImage = styled.img`

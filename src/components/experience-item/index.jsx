@@ -26,15 +26,15 @@ export default function ExperienceItem({item, noAnimation, center, imageWidth}) 
       onMouseEnter={noAnimation ? null : () => setIsShowingDescription(true)}
       onMouseLeave={noAnimation ? null : () => setIsShowingDescription(false)}
     >
+      <ExperienceItemCompanyLogoContainer center={center} width={imageWidth} >
+        <ExperienceItemCompanyLogoImage src={assetSvc.get(logo)} />
+      </ExperienceItemCompanyLogoContainer>
+      
       <ExperienceItemHeader
         center={center}
         animate={isShowingDescription ? 'emphasis' : 'normal'}
         variants={headerVariants}
       >
-        <ExperienceItemCompanyLogoContainer center={center} width={imageWidth} >
-          <ExperienceItemCompanyLogoImage src={assetSvc.get(logo)} />
-        </ExperienceItemCompanyLogoContainer>
-
         <ExperienceItemHeaderText>
           <ExperienceItemTitle>{title}</ExperienceItemTitle>
           <ExperienceItemCompany>{company}</ExperienceItemCompany>
