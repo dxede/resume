@@ -13,7 +13,7 @@ const AvatarImageContainer = styled(motion.div).attrs(props => {
   width: ${(props) => props.width};
   height: ${(props) => props.height};
   margin: auto;
-  border-radius: ${(props) => props.square ? undefined : '50%'};
+  border-radius: ${(props) => props.square ? undefined : '60%'};
   overflow: hidden;
 `;
 

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import configSvc from '../services/config-svc';
 import { motion } from 'framer-motion';
 import DangerousHTML from './dangerousHTML';
+import DownloadIcon from './dowload-icon';
 
 const socialRowVariant = {
   show: {
@@ -49,8 +50,8 @@ const SocialIconContainer = styled(motion.a)`
   }
 `;
 
-function SocialIcon ({ gap, linkTo, name, width }) {
-  const { svg, hex } = configSvc.getIcon(name);
+function SocialIcon ({ gap, linkTo, name, width, svgOverride = null }) {
+  const { svg, hex } = configSvc.getIcon(name) || {};
   
   return (
     <SocialIconContainer 
@@ -60,15 +61,25 @@ function SocialIcon ({ gap, linkTo, name, width }) {
       href={linkTo}
       width={width}
       logoColor={hex}
+      target='_blank'
     >
-      <DangerousHTML>{svg}</DangerousHTML>
+      {svgOverride || <DangerousHTML>{svg}</DangerousHTML>}
     </SocialIconContainer>
   )
 }
 
-export default function SocialSharing({ width, gap, animate = 'show', ...rest }) {
+export default function SocialSharing({ width, gap, isForNav, animate = 'show', ...rest }) {
  return (
     <SocialRow variants={socialRowVariant} animate={animate} { ...rest }>
+      {!isForNav &&
+        <SocialIcon 
+          width={width}
+          gap={gap}
+          name='download'
+          svgOverride={<DownloadIcon />}
+          linkTo='https://s3.amazonaws.com/resume.edede/Resume.pdf'
+        />
+      }
       {configSvc.socialSharing.map((social, indx) => 
         <SocialIcon key={indx} width={width} gap={gap} name={social.name} linkTo={social.linkTo} />)
       }

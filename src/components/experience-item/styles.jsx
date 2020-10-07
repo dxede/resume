@@ -12,7 +12,7 @@ export const ExperienceItemContainer = styled.div`
 
   @media (max-width: 768px) {
     grid-template-columns: ${(props) => props.center ? 'auto' : '4em auto'};
-    grid-column-gap: 1em;
+    grid-column-gap: ${(props) => props.center ? null : '1em'};
     grid-template-areas: ${(props) => props.center ? '"image" "header"' : '"image header" ". description"'};
   }
 `;

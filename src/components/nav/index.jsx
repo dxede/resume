@@ -53,7 +53,7 @@ const NavContainer = styled(motion.div)`
   display: grid;
   text-align: left;
   align-items: center;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 49% 50%;
   gap: 1%;
   position: fixed;
   top: 0;
@@ -125,6 +125,7 @@ export default function Nav() {
             width="0.4em" 
             gap="0.18em"
             animate={isScrolledPastSocialIcons ? 'show' : 'hide'}
+            isForNav
           />
           <EdedeAvatar 
             width="1.2em"

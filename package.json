@@ -10,6 +10,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "^3.4.3",
+    "release-it": "^14.0.4",
     "simple-icons": "^3.11.0",
     "styled-components": "^5.2.0"
   },
@@ -17,7 +18,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "release": "release-it"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -33,5 +35,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "release-it": {
+    "hooks": {
+      "before:init": "npm run build"
+    }
   }
 }

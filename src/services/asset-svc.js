@@ -5,6 +5,7 @@ import RouteThisLogo from '../assets/routethis.svg';
 import SMLogo from '../assets/sm.svg';
 import TDLogo from '../assets/td.png';
 import UWaterlooLogo from '../assets/uwaterloo.png';
+import DownloadIcon from '../assets/download.svg';
 
 
 class AssetSvc extends ServiceBase {
@@ -14,7 +15,8 @@ class AssetSvc extends ServiceBase {
     RouteThisLogo,
     SMLogo,
     TDLogo,
-    UWaterlooLogo
+    UWaterlooLogo,
+    DownloadIcon
   }
 
   get (name) {
