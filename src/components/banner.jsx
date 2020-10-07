@@ -24,7 +24,9 @@ export default function Banner() {
   return (
   <BannerContainer>
     <EdedeAvatar />
-    <BannerText>I focus on using my diverse skill set to deliver effective solutions to problems at any level of the application stack.</BannerText>
+    <BannerText>
+      I focus on using my diverse skill set to deliver effective solutions to problems at any level of the application stack.
+    </BannerText>
     <SocialSharing />
   </BannerContainer>)
 }

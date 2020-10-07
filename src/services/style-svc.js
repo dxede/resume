@@ -35,6 +35,7 @@ export default class StyleSvc extends ServiceBase {
       headerFont: `'Bebas Neue', 'Roboto Condensed', sans-serif`
     };
 
+    /** @TODO: Enable theming after creating toggle mechanism */
     // this.setupTheme();
   }
 
@@ -48,23 +49,23 @@ export default class StyleSvc extends ServiceBase {
       .addEventListener('change', e => {
         this.isDarkMode = e.matches;
         this.colors = this.isDarkMode ? DARK_THEME : LIGHT_THEME;
-        this.attachThemeStylesToDocument();
+        this.attachThemeStylesToHTMLElement();
       });
     }
-    this.attachThemeStylesToDocument();
+    this.attachThemeStylesToHTMLElement();
   }
 
-  attachThemeStylesToDocument () {
+  attachThemeStylesToHTMLElement () {
     const htmlElement = document.getElementsByTagName('html')[0];
     htmlElement.style.background = this.colors.background;
     htmlElement.style.color = this.colors.color;
   }
 
-  // TODO: Convert to queue
+  /** @TODO: Convert to queue */
   toggleThemes () {
     const themes = [DARK_THEME, LIGHT_THEME, DARK_COLOR_THEME];
     const otherThemes = themes.filter(t => t !== this.colors);
     this.colors = otherThemes[Math.floor(Math.random() * Math.floor(themes.length))];
-    this.attachThemeStylesToDocument();
+    this.attachThemeStylesToHTMLElement();
   }
 }
