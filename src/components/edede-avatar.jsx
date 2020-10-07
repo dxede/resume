@@ -18,7 +18,7 @@ const AvatarImageContainer = styled(motion.div).attrs(props => {
 `;
 
 const AvatarImage = styled.img`
-  object-fit: cover;
+  object-fit: contain;
   height: 100%;
   width: 100%;
 `;

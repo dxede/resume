@@ -15,7 +15,7 @@ import {
   ExperienceItemDescriptionItemListEntry
 } from './styles';
 
-export default function ExperienceItem({item, noAnimation, center}) {
+export default function ExperienceItem({item, noAnimation, center, imageWidth}) {
   const [isShowingDescription, setIsShowingDescription] = useState(false);
   const {title, company, dateString, descriptionItems, logo } = item;
 
@@ -31,7 +31,7 @@ export default function ExperienceItem({item, noAnimation, center}) {
         animate={isShowingDescription ? 'emphasis' : 'normal'}
         variants={headerVariants}
       >
-        <ExperienceItemCompanyLogoContainer center={center}>
+        <ExperienceItemCompanyLogoContainer center={center} width={imageWidth} >
           <ExperienceItemCompanyLogoImage src={assetSvc.get(logo)} />
         </ExperienceItemCompanyLogoContainer>
 

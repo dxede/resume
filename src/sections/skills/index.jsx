@@ -3,6 +3,7 @@ import Section from '../../components/section';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import configSvc from '../../services/config-svc';
+import DangerousHTML from '../../components/dangerousHTML';
 
 const listVariant = {
   appear: {
@@ -66,9 +67,10 @@ export default function SkillsSection() {
             <SkillImageContainer 
               whileHover={{ scale: 1.15 }}
               transition={{ type: 'spring' }}
-              dangerouslySetInnerHTML={{__html: sd.svg}}
               fill={`#${sd.hex}`}
-            />
+            >
+              <DangerousHTML>{sd.svg}</DangerousHTML>
+            </SkillImageContainer>
             <SkillLabel>{sd.label}</SkillLabel>
           </SkillContainer>
         ))}

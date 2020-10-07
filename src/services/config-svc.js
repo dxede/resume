@@ -174,6 +174,10 @@ class ConfigSvc extends ServiceBase {
     return `https://unpkg.com/simple-icons@v3/icons/${name}.svg`
   }
 
+  getIcon (name) {
+    return simpleIcons.get(name);
+  }
+
   get experienceData () {
     return experienceData;
   }
@@ -189,7 +193,7 @@ class ConfigSvc extends ServiceBase {
 
   get skillsData () {
     return skillData.map(s => {
-      const icon = simpleIcons.get(s.name || s.label) || {};
+      const icon = this.getIcon(s.name || s.label) || {};
       
       return {
         ...icon,

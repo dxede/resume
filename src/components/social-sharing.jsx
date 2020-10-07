@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import configSvc from '../services/config-svc';
 import { motion } from 'framer-motion';
+import DangerousHTML from './dangerousHTML';
 
 const socialRowVariant = {
   show: {
@@ -35,15 +36,17 @@ const SocialRow = styled(motion.div)`
 
 const SocialIconContainer = styled(motion.a)`
   margin: ${(props) => props.gap || '0.5em'};
-  opacity: 0;
-`;
-
-const SocialIconImage = styled.img`
   width: ${(props) => props.width || '1.2em'};
+  opacity: 0;
+
+  & > span > svg:hover {
+    fill: ${(props) => `#${props.logoColor}`};
+    transition: fill 200ms;
+  }
 `;
 
 function SocialIcon ({ gap, linkTo, name, width }) {
-  const imageSrc = configSvc.makeSimpleIconURL(name);
+  const { svg, hex } = configSvc.getIcon(name);
   
   return (
     <SocialIconContainer 
@@ -51,8 +54,10 @@ function SocialIcon ({ gap, linkTo, name, width }) {
       variants={socialIconVariant} 
       gap={gap} 
       href={linkTo}
+      width={width}
+      logoColor={hex}
     >
-      <SocialIconImage src={imageSrc} width={width} />
+      <DangerousHTML>{svg}</DangerousHTML>
     </SocialIconContainer>
   )
 }

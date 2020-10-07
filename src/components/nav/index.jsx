@@ -54,14 +54,23 @@ const NavContainer = styled(motion.div)`
   display: grid;
   text-align: left;
   align-items: center;
-  grid-template-columns: 80% 19%;
-  /* background: ${styleSvc.colors.nav}; */
+  grid-template-columns: 50% 50%;
   gap: 1%;
   position: fixed;
   top: 0;
   width: calc(100vw - 1em);
   display: ${(props) => props.vanish ? 'grid' : 'grid'};
   z-index: ${styleSvc.z.nav};
+
+  @media (max-width: 996px) {
+    background: ${styleSvc.colors.nav};
+  }
+
+  @media (max-width: 390px) {
+    grid-template-columns: auto;
+    grid-template-rows: 1em;
+    justify-items: center; 
+  }
 `;
 
 const NavRightContainer = styled.div`
