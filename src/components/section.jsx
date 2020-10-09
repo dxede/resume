@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion';
 import React from 'react';
+import { m as motion } from 'framer-motion';
 import styled from 'styled-components';
 import SectionHeader from './section-header';
 

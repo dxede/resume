@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
     "framer-motion": "^2.7.7",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -14,11 +11,13 @@
     "simple-icons": "^3.11.0",
     "styled-components": "^5.2.0"
   },
+  "homepage": "https://resume.edede.ca",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "analyze": "source-map-explorer build/static/js/main.*",
     "release": "release-it"
   },
   "eslintConfig": {
@@ -40,5 +39,11 @@
     "hooks": {
       "before:init": "npm run build"
     }
+  },
+  "devDependencies": {
+    "source-map-explorer": "^2.5.0",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2"
   }
 }

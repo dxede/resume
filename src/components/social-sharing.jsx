@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { lazy } from 'react';
 import styled from 'styled-components';
+import { m as motion } from 'framer-motion';
 import configSvc from '../services/config-svc';
-import { motion } from 'framer-motion';
 import DangerousHTML from './dangerousHTML';
-import DownloadIcon from './dowload-icon';
+import CustomSuspense from './custom-suspense';
+
+const DownloadIcon = lazy(() => import('./dowload-icon'));
 
 const socialRowVariant = {
   show: {
@@ -40,7 +42,8 @@ const SocialIconContainer = styled(motion.a)`
   width: ${(props) => props.width || '1.2em'};
   opacity: 0;
 
-  & > span > svg {
+  & > span > svg,
+  svg {
     fill: ${props => props.theme.colors.color};
 
     &:hover {
@@ -50,7 +53,7 @@ const SocialIconContainer = styled(motion.a)`
   }
 `;
 
-function SocialIcon ({ gap, linkTo, name, width, svgOverride = null }) {
+function SocialIcon ({ gap, linkTo, name, width, svgOverride = null, svgOverrideHex = null }) {
   const { svg, hex } = configSvc.getIcon(name) || {};
   
   return (
@@ -60,7 +63,7 @@ function SocialIcon ({ gap, linkTo, name, width, svgOverride = null }) {
       gap={gap} 
       href={linkTo}
       width={width}
-      logoColor={hex}
+      logoColor={svgOverrideHex || hex}
       target='_blank'
     >
       {svgOverride || <DangerousHTML>{svg}</DangerousHTML>}
@@ -76,12 +79,13 @@ export default function SocialSharing({ width, gap, isForNav, animate = 'show', 
           width={width}
           gap={gap}
           name='download'
-          svgOverride={<DownloadIcon />}
+          svgOverride={<CustomSuspense><DownloadIcon /></CustomSuspense>}
+          svgOverrideHex='a9a9a9'
           linkTo='https://s3.amazonaws.com/resume.edede/Resume.pdf'
         />
       }
       {configSvc.socialSharing.map((social, indx) => 
-        <SocialIcon key={indx} width={width} gap={gap} name={social.name} linkTo={social.linkTo} />)
+        <SocialIcon key={indx} width={width} gap={gap} name={social.name} linkTo={social.linkTo} svgOverrideHex={social.hex} />)
       }
     </SocialRow>
   );

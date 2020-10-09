@@ -1,5 +1,6 @@
-import ServiceBase from './_base-svc';
+import React from 'react';
 import simpleIcons from 'simple-icons';
+import ServiceBase from './_base-svc';
 
 const experienceData = {
   stringmasters: {
@@ -161,7 +162,8 @@ class ConfigSvc extends ServiceBase {
     },
     {
       name: 'github',
-      linkTo: 'https://github.com/dxede'
+      linkTo: 'https://github.com/dxede',
+      hex: 'ff9300'
     },
   ];
 
@@ -201,6 +203,10 @@ class ConfigSvc extends ServiceBase {
         logo: this.makeSimpleIconURL(icon.slug),
       }
     });
+  }
+
+  get defaultFallBack () {
+    return <div></div>;
   }
 }
 

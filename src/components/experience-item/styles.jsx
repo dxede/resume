@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
+import { m as motion } from 'framer-motion';
 
 export const ExperienceItemContainer = styled.div`
   display: grid;
