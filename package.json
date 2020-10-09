@@ -15,6 +15,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build-prod": "react-scripts build && gzipper compress ./build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "analyze": "source-map-explorer build/static/js/main.*",
@@ -41,9 +42,10 @@
     }
   },
   "devDependencies": {
-    "source-map-explorer": "^2.5.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2"
+    "@testing-library/user-event": "^7.1.2",
+    "gzipper": "^4.0.2",
+    "source-map-explorer": "^2.5.0"
   }
 }
