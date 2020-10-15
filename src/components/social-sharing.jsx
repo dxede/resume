@@ -1,11 +1,10 @@
-import React, { lazy } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { m as motion } from 'framer-motion';
+import { DownloadIcon } from './icons';
 import DangerousHTML from './dangerousHTML';
-import CustomSuspense from './custom-suspense';
-import useAppServices from '../hooks/use-app-service';
+import useAppServices from '../hooks/use-app-services';
 
-const DownloadIcon = lazy(() => import('./dowload-icon'));
 
 const socialRowVariant = {
   show: {
@@ -37,14 +36,14 @@ const SocialRow = styled(motion.div)`
   opacity: 0;
 `;
 
-const SocialIconContainer = styled(motion.a)`
+const AnimatedSocialIconContainer = styled(motion.a)`
   margin: ${(props) => props.gap || '0.5em'};
   width: ${(props) => props.width || '1.2em'};
   opacity: 0;
 
   & > span > svg,
   svg {
-    fill: ${props => props.theme.colors.color};
+    fill: ${props => props.theme.color};
 
     &:hover {
       fill: ${(props) => `#${props.logoColor}`};
@@ -53,12 +52,12 @@ const SocialIconContainer = styled(motion.a)`
   }
 `;
 
-function SocialIcon ({ gap, linkTo, name, width, svgOverride = null, svgOverrideHex = null }) {
+function AnimatedSocialIcon ({ gap, linkTo, name, width, svgOverride = null, svgOverrideHex = null }) {
   const { dataSvc } = useAppServices();
   const { svg, hex } = dataSvc.getSimpleIcon(name) || {};
   
   return (
-    <SocialIconContainer 
+    <AnimatedSocialIconContainer 
       y={-10}
       variants={socialIconVariant} 
       gap={gap} 
@@ -68,7 +67,7 @@ function SocialIcon ({ gap, linkTo, name, width, svgOverride = null, svgOverride
       target='_blank'
     >
       {svgOverride || <DangerousHTML>{svg}</DangerousHTML>}
-    </SocialIconContainer>
+    </AnimatedSocialIconContainer>
   )
 }
 
@@ -78,17 +77,17 @@ export default function SocialSharing({ width, gap, isForNav, animate = 'show', 
   return (
     <SocialRow variants={socialRowVariant} animate={animate} { ...rest }>
       {!isForNav &&
-        <SocialIcon 
+        <AnimatedSocialIcon 
           width={width}
           gap={gap}
           name='download'
-          svgOverride={<CustomSuspense><DownloadIcon /></CustomSuspense>}
+          svgOverride={<DownloadIcon />}
           svgOverrideHex='a9a9a9'
           linkTo='https://s3.amazonaws.com/resume.edede/Resume.pdf'
         />
       }
       {dataSvc.socialSharing.map((social, indx) => 
-        <SocialIcon key={indx} width={width} gap={gap} name={social.name} linkTo={social.linkTo} svgOverrideHex={social.hex} />)
+        <AnimatedSocialIcon key={indx} width={width} gap={gap} name={social.name} linkTo={social.linkTo} svgOverrideHex={social.hex} />)
       }
     </SocialRow>
   );

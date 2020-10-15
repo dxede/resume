@@ -3,7 +3,7 @@ import Section from '../../components/section';
 import styled from 'styled-components';
 import { m as motion } from 'framer-motion';
 import DangerousHTML from '../../components/dangerousHTML';
-import useAppServices from '../../hooks/use-app-service';
+import useAppServices from '../../hooks/use-app-services';
 
 const listVariant = {
   appear: {

@@ -62,7 +62,7 @@ const NavContainer = styled(motion.div)`
   z-index: ${props => props.theme.z.nav};
 
   @media (max-width: 1200px) {
-    background: ${props => props.theme.colors.nav};
+    background: ${props => props.theme.nav};
   }
 
   @media (max-width: 390px) {

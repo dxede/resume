@@ -1,7 +1,7 @@
 import React from 'react';
 import ExperienceItem from '../components/experience-item';
 import Section from '../components/section';
-import useAppServices from '../hooks/use-app-service';
+import useAppServices from '../hooks/use-app-services';
 
 export default function EducationSection() {
   const { dataSvc } = useAppServices();
