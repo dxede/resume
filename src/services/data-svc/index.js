@@ -31,7 +31,12 @@ export default class DataSvc {
     return `https://unpkg.com/simple-icons@v3/icons/${name}.svg`
   }
 
-  getIcon (name) {
+  /**
+   * Get a simple icon object.
+   * 
+   * @param name The brand you need an icon for.
+   */
+  getSimpleIcon (name) {
     return simpleIcons.get(name);
   }
 
@@ -50,7 +55,7 @@ export default class DataSvc {
 
   get skillsData () {
     return skillsData.map(s => {
-      const icon = this.getIcon(s.name || s.label) || {};
+      const icon = this.getSimpleIcon(s.name || s.label) || {};
       
       return {
         ...icon,

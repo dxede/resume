@@ -55,7 +55,7 @@ const SocialIconContainer = styled(motion.a)`
 
 function SocialIcon ({ gap, linkTo, name, width, svgOverride = null, svgOverrideHex = null }) {
   const { dataSvc } = useAppServices();
-  const { svg, hex } = dataSvc.getIcon(name) || {};
+  const { svg, hex } = dataSvc.getSimpleIcon(name) || {};
   
   return (
     <SocialIconContainer 
