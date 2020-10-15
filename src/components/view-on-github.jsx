@@ -31,7 +31,11 @@ const ViewGithubContainer = styled.a`
 const StyledDangerousHTML = styled(DangerousHTML)`
   display: grid;
   align-items: center;
-`
+`;
+
+const SourceSpan = styled.span`
+  min-width: fill-available;
+`;
 
 export default function ViewOnGithub ({ caption, linkTo }) {
   const { dataSvc } = useAppServices();
@@ -42,7 +46,7 @@ export default function ViewOnGithub ({ caption, linkTo }) {
       href={linkTo}
       target='_blank'
     >
-      {caption || 'View Source'}
+      <SourceSpan>{caption || 'View Source'}</SourceSpan>
       <StyledDangerousHTML>{svg}</StyledDangerousHTML>
     </ViewGithubContainer>
   )

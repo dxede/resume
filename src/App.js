@@ -76,14 +76,12 @@ function App() {
           <EducationSection />
           <footer> 
             <div style={{
-              width: '100%',
               display: 'grid',
-              justifyItems: 'center'
+              justifyItems: 'center',
             }}>
               <ViewOnGithub
                 linkTo="https://github.edede.ca/resume"
                 name="github"
-                width="1em"
               />
             </div>
           </footer>
