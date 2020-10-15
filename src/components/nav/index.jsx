@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import styled from 'styled-components';
 import { m as motion } from 'framer-motion';
-import useScrollPosition from '../../hooks/useScrollPosition';
+import useScrollPosition from '../../hooks/use-scroll-position';
 import EdedeAvatar from '../edede-avatar';
 import SocialSharing from '../social-sharing';
 

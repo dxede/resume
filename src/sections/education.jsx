@@ -1,12 +1,13 @@
 import React from 'react';
 import ExperienceItem from '../components/experience-item';
 import Section from '../components/section';
-import configSvc from '../services/config-svc';
+import useAppServices from '../hooks/use-app-service';
 
 export default function EducationSection() {
+  const { dataSvc } = useAppServices();
   return (
     <Section title="Education">
-      <ExperienceItem center noAnimation item={configSvc.educationData} imageWidth='5em' />
+      <ExperienceItem center noAnimation item={dataSvc.educationData} imageWidth='5em' />
     </Section>
   )
 }
