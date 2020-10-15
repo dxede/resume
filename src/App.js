@@ -10,6 +10,7 @@ import SkillsSection from './sections/skills';
 import ExperienceSection from './sections/experience';
 import EducationSection from './sections/education';
 import StyleSvc from './services/style-svc';
+import ViewOnGithub from './components/view-github-source';
 
 const Footer = styled.footer`
   margin: 1em 0 0;
@@ -27,7 +28,13 @@ function App() {
           <SkillsSection />
           <ExperienceSection />
           <EducationSection />
-          <Footer />
+          <Footer> 
+            <ViewOnGithub
+              linkTo="https://github.edede.ca/resume"
+              name="github"
+              width="1em"
+            />
+          </Footer>
         </MotionConfig>
       </ThemeProvider>
     </div>

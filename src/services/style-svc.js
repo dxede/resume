@@ -9,6 +9,7 @@ const LIGHT_THEME = {
   background: '#fefefe',
   color: '#000',
   footer: '#202021',
+  footerColor: '#808080',
   nav: '#fbfbfb',
   separator: '#e8e8e8d9'
 }
