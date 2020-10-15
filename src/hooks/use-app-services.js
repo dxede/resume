@@ -1,5 +1,6 @@
 import AssetSvc from "../services/asset-svc";
-import DataSvc from "../services/data-svc/";
+import DataSvc from "../services/data-svc";
+import StyleSvc from "../services/style-svc";
 
 const ServiceCache = {};
 
@@ -11,6 +12,7 @@ export function loadServiceCache () {
   if (Object.keys(ServiceCache).length === 0) {
     ServiceCache.dataSvc = new DataSvc();
     ServiceCache.assetSvc = new AssetSvc();
+    ServiceCache.stylesSvc = new StyleSvc();
   }
 }
 

@@ -1,11 +1,10 @@
-import React, { lazy } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { m as motion } from 'framer-motion';
+import { DownloadIcon } from './icons';
 import DangerousHTML from './dangerousHTML';
-import CustomSuspense from './custom-suspense';
-import useAppServices from '../hooks/use-app-service';
+import useAppServices from '../hooks/use-app-services';
 
-const DownloadIcon = lazy(() => import('./dowload-icon'));
 
 const socialRowVariant = {
   show: {
@@ -44,7 +43,7 @@ const AnimatedSocialIconContainer = styled(motion.a)`
 
   & > span > svg,
   svg {
-    fill: ${props => props.theme.colors.color};
+    fill: ${props => props.theme.color};
 
     &:hover {
       fill: ${(props) => `#${props.logoColor}`};
@@ -82,7 +81,7 @@ export default function SocialSharing({ width, gap, isForNav, animate = 'show', 
           width={width}
           gap={gap}
           name='download'
-          svgOverride={<CustomSuspense><DownloadIcon /></CustomSuspense>}
+          svgOverride={<DownloadIcon />}
           svgOverrideHex='a9a9a9'
           linkTo='https://s3.amazonaws.com/resume.edede/Resume.pdf'
         />

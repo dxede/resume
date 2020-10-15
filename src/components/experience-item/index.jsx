@@ -13,7 +13,7 @@ import {
   ExperienceItemDescriptionItemsList,
   ExperienceItemDescriptionItemListEntry
 } from './styles';
-import useAppServices from '../../hooks/use-app-service';
+import useAppServices from '../../hooks/use-app-services';
 
 
 export default function ExperienceItem({item, noAnimation, center, imageWidth}) {
