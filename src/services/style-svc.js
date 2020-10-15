@@ -1,5 +1,3 @@
-import ServiceBase from './_base-svc';
-
 const DARK_THEME = {
   background: 'black',
   color: 'white',
@@ -22,9 +20,8 @@ const DARK_COLOR_THEME = {
   separator: '#131b25'
 }
 
-export default class StyleSvc extends ServiceBase {
+export default class StyleSvc {
   constructor () {
-    super();
     this.colors = LIGHT_THEME;
 
     this.z = {

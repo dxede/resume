@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import AssetSvc from '../../services/asset-svc';
 import { descriptionVariants, headerVariants } from './variants';
 import { 
   ExperienceItemContainer, 
@@ -14,9 +13,11 @@ import {
   ExperienceItemDescriptionItemsList,
   ExperienceItemDescriptionItemListEntry
 } from './styles';
+import useAppServices from '../../hooks/use-app-service';
 
 
 export default function ExperienceItem({item, noAnimation, center, imageWidth}) {
+  const { assetSvc } = useAppServices();
   const [isShowingDescription, setIsShowingDescription] = useState(false);
   const {title, company, dateString, descriptionItems, logo } = item;
 
@@ -28,7 +29,7 @@ export default function ExperienceItem({item, noAnimation, center, imageWidth}) 
       onMouseLeave={noAnimation ? null : () => setIsShowingDescription(false)}
     >
       <ExperienceItemCompanyLogoContainer center={center} width={imageWidth} >
-        <ExperienceItemCompanyLogoImage src={(new AssetSvc()).getLogo(logo)} />
+        <ExperienceItemCompanyLogoImage src={assetSvc.getLogo(logo)} />
       </ExperienceItemCompanyLogoContainer>
       
       <ExperienceItemHeader

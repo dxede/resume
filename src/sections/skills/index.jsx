@@ -2,8 +2,8 @@ import React from 'react';
 import Section from '../../components/section';
 import styled from 'styled-components';
 import { m as motion } from 'framer-motion';
-import configSvc from '../../services/config-svc';
 import DangerousHTML from '../../components/dangerousHTML';
+import useAppServices from '../../hooks/use-app-service';
 
 const listVariant = {
   appear: {
@@ -53,10 +53,12 @@ const SkillImageContainer = styled(motion.div)`
 `;
 
 export default function SkillsSection() {
+  const { dataSvc } = useAppServices();
+
   return (
     <Section title="Skills">
       <SkillsList variants={listVariant} animate="appear">
-        {configSvc.skillsData.map((sd, indx) => (
+        {dataSvc.skillsData.map((sd, indx) => (
           <SkillContainer
             y={10}
             scale={0}

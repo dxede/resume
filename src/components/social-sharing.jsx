@@ -1,9 +1,9 @@
 import React, { lazy } from 'react';
 import styled from 'styled-components';
 import { m as motion } from 'framer-motion';
-import configSvc from '../services/config-svc';
 import DangerousHTML from './dangerousHTML';
 import CustomSuspense from './custom-suspense';
+import useAppServices from '../hooks/use-app-service';
 
 const DownloadIcon = lazy(() => import('./dowload-icon'));
 
@@ -54,7 +54,8 @@ const SocialIconContainer = styled(motion.a)`
 `;
 
 function SocialIcon ({ gap, linkTo, name, width, svgOverride = null, svgOverrideHex = null }) {
-  const { svg, hex } = configSvc.getIcon(name) || {};
+  const { dataSvc } = useAppServices();
+  const { svg, hex } = dataSvc.getSimpleIcon(name) || {};
   
   return (
     <SocialIconContainer 
@@ -72,7 +73,9 @@ function SocialIcon ({ gap, linkTo, name, width, svgOverride = null, svgOverride
 }
 
 export default function SocialSharing({ width, gap, isForNav, animate = 'show', ...rest }) {
- return (
+  const { dataSvc } = useAppServices();
+
+  return (
     <SocialRow variants={socialRowVariant} animate={animate} { ...rest }>
       {!isForNav &&
         <SocialIcon 
@@ -84,7 +87,7 @@ export default function SocialSharing({ width, gap, isForNav, animate = 'show', 
           linkTo='https://s3.amazonaws.com/resume.edede/Resume.pdf'
         />
       }
-      {configSvc.socialSharing.map((social, indx) => 
+      {dataSvc.socialSharing.map((social, indx) => 
         <SocialIcon key={indx} width={width} gap={gap} name={social.name} linkTo={social.linkTo} svgOverrideHex={social.hex} />)
       }
     </SocialRow>

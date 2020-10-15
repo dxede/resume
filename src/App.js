@@ -1,11 +1,9 @@
 import React from 'react';
 import styled, { ThemeProvider } from 'styled-components';
-
 import {
   MotionConfig,
   AnimationFeature
 } from "framer-motion"
-
 import Nav from './components/nav';
 import Banner from './components/banner';
 import SkillsSection from './sections/skills';
