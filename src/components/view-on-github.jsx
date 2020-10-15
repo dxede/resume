@@ -10,8 +10,6 @@ const ViewGithubContainer = styled.a`
   justify-content: center;
   align-items: center;
   font-size: 0.8em;
-  margin: ${(props) => props.gap || '0.5em'};
-  width: fit-content;
   margin: auto;
 
   &:hover {

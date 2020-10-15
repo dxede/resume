@@ -9,7 +9,7 @@ import Banner from './components/banner';
 import SkillsSection from './sections/skills';
 import ExperienceSection from './sections/experience';
 import EducationSection from './sections/education';
-import ViewOnGithub from './components/view-github-source';
+import ViewOnGithub from './components/view-on-github';
 import useAppServices from './hooks/use-app-services';
 import { PaletteIcon } from './components/icons';
 
@@ -75,11 +75,17 @@ function App() {
           <ExperienceSection />
           <EducationSection />
           <footer> 
-            <ViewOnGithub
-              linkTo="https://github.edede.ca/resume"
-              name="github"
-              width="1em"
-            />
+            <div style={{
+              width: '100%',
+              display: 'grid',
+              justifyItems: 'center'
+            }}>
+              <ViewOnGithub
+                linkTo="https://github.edede.ca/resume"
+                name="github"
+                width="1em"
+              />
+            </div>
           </footer>
         </MotionConfig>
       </ThemeProvider>
