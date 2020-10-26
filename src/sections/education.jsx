@@ -1,13 +1,13 @@
 import React from 'react';
-import ExperienceItem from '../components/experience-item';
-import Section from '../components/section';
-import useAppServices from '../hooks/use-app-services';
+import ProvisionedSection from '../components/provisioned-section';
+import ExperienceItem from '../components/experience-item/';
 
 export default function EducationSection() {
-  const { dataSvc } = useAppServices();
   return (
-    <Section title="Education">
-      <ExperienceItem center noAnimation item={dataSvc.educationData} imageWidth='5em' />
-    </Section>
+    <ProvisionedSection
+      title="Education"
+      fetchFunctionName="fetchEducationData"
+      mapFunc={item => <ExperienceItem key={item.title} center noAnimation item={item} imageWidth='5em' />}
+    />
   )
 }

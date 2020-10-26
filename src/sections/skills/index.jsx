@@ -1,9 +1,8 @@
 import React from 'react';
-import Section from '../../components/section';
 import styled from 'styled-components';
 import { m as motion } from 'framer-motion';
 import DangerousHTML from '../../components/dangerousHTML';
-import useAppServices from '../../hooks/use-app-services';
+import ProvisionedSection from '../../components/provisioned-section';
 
 const listVariant = {
   appear: {
@@ -53,29 +52,31 @@ const SkillImageContainer = styled(motion.div)`
 `;
 
 export default function SkillsSection() {
-  const { dataSvc } = useAppServices();
-
   return (
-    <Section title="Skills">
-      <SkillsList variants={listVariant} animate="appear">
-        {dataSvc.skillsData.map((sd, indx) => (
-          <SkillContainer
-            y={10}
-            scale={0}
-            variants={listItemVariant}
-            key={indx} 
+    <ProvisionedSection
+      title="Skills"
+      fetchFunctionName="fetchSkillsData"
+      mapFunc={(sd, indx) => (
+        <SkillContainer
+          y={10}
+          scale={0}
+          variants={listItemVariant}
+          key={indx} 
+        >
+          <SkillImageContainer 
+            whileHover={{ scale: 1.15 }}
+            transition={{ type: 'spring' }}
+            fill={`#${sd.hex}`}
           >
-            <SkillImageContainer 
-              whileHover={{ scale: 1.15 }}
-              transition={{ type: 'spring' }}
-              fill={`#${sd.hex}`}
-            >
-              <DangerousHTML>{sd.svg}</DangerousHTML>
-            </SkillImageContainer>
-            <SkillLabel>{sd.label}</SkillLabel>
-          </SkillContainer>
-        ))}
-      </SkillsList>
-    </Section>
+            <DangerousHTML>{sd.svg}</DangerousHTML>
+          </SkillImageContainer>
+          <SkillLabel>{sd.label}</SkillLabel>
+        </SkillContainer>
+      )}
+      WrapperComponent={({ children }) => 
+        <SkillsList variants={listVariant} animate="appear">
+          {children}
+        </SkillsList>}
+    />
   )
 }
