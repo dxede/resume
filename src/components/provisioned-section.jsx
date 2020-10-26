@@ -1,13 +1,21 @@
-import React, { useState } from 'react';
-import { useEffect } from 'react';
+import React, { useState, lazy, useEffect } from 'react';
 import useAppServices from '../hooks/use-app-services';
-import { SkillSkeletonList } from '../sections/skills/skeleton';
-import ExperienceItemSkeleton from './experience-item/skeleton';
-import Section from './section';
+import CustomSuspense from './custom-suspense';
+const SkillSkeletonList = lazy(() => import('../sections/skills/skeleton'));
+const ExperienceItemSkeleton = lazy(() => import('./experience-item/skeleton')) ;
+const Section = lazy(() => import('./section'));
 
 function createSkeletons (length, useCenteredSkeleton = false) {
-  return Array.from({ length }, (_,k)=> k+1)
-  .map((_, i) => <ExperienceItemSkeleton key={i} center={useCenteredSkeleton} />);
+  return (
+    <CustomSuspense>
+      {
+        Array.from({ length }, (_,k)=> k+1)
+        .map(
+          (_, i) => <ExperienceItemSkeleton key={i} center={useCenteredSkeleton} />
+        )
+      }
+    </CustomSuspense>
+  );
 }
 
 export default function ProvisionedSection({ 
@@ -30,11 +38,15 @@ export default function ProvisionedSection({
   const content = WrapperComponent ? <WrapperComponent>{data.map(mapFunc)}</WrapperComponent> : data.map(mapFunc);
 
   return (
-    <Section title={title}>
-       {
-        data.length > 0 ? content : 
-        useSkillsSkeletons ? <SkillSkeletonList count={skeletonCount} /> : createSkeletons(skeletonCount, useCenteredSkeleton)
-        }
-    </Section>
+    <CustomSuspense>
+      <Section title={title}>
+        {
+          data.length > 0 ? content : 
+          useSkillsSkeletons ? 
+            <SkillSkeletonList count={skeletonCount} /> : 
+            createSkeletons(skeletonCount, useCenteredSkeleton)
+          }
+      </Section>
+    </CustomSuspense>
   )
 }

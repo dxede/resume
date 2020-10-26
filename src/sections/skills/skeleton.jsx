@@ -2,7 +2,7 @@ import React from 'react';
 import { SkillContainer, SkillImageContainer, SkillLabel, SkillsList } from './styles';
 import { skeletonVariant } from './variants';
 
-export default function SkillSkeleton() {
+export function SkillSkeleton() {
   return (
     <SkillContainer
       skeleton
@@ -19,7 +19,7 @@ function createSkeletons (length) {
   .map((_, i) => <SkillSkeleton key={i} />);
 }
 
-export function SkillSkeletonList ({ count = 6 }) {
+export default function SkillSkeletonList ({ count = 6 }) {
   return (
     <SkillsList
       animate='pulse'
