@@ -4,7 +4,7 @@ import 'firebase/analytics';
 const env = process.env;
 
 export default function configureApp() {
-  if (!env.REACT_APP_IS_DEV) {
+  if (!env.REACT_APP_IS_DEV_ENV) {
     configureFirebase();
   }
 }
