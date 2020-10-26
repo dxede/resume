@@ -1,6 +1,6 @@
-import simpleIcons from 'simple-icons';
 import experienceData from './experience-data';
 import skillsData from './skills-data';
+import SimpleIcons from './icons';
 
 export default class DataSvc {
   /**
@@ -8,15 +8,15 @@ export default class DataSvc {
    */
   socialSharing = [
     {
-      name: 'gmail',
+      name: 'Gmail',
       linkTo: 'mailto:eoiwoh@gmail.com'
     },
     {
-      name: 'linkedin',
+      name: 'LinkedIn',
       linkTo: 'https://linkedin.com/in/ededeoiwoh'
     },
     {
-      name: 'github',
+      name: 'Github',
       linkTo: 'https://github.com/dxede',
       hex: 'ff9300'
     },
@@ -37,7 +37,7 @@ export default class DataSvc {
    * @param name The brand you need an icon for.
    */
   getSimpleIcon (name) {
-    return simpleIcons.get(name);
+    return SimpleIcons[name];
   }
 
   get experienceData () {
@@ -55,7 +55,7 @@ export default class DataSvc {
 
   get skillsData () {
     return skillsData.map(s => {
-      const icon = this.getSimpleIcon(s.name || s.label) || {};
+      const icon = this.getSimpleIcon(s.label) || {};
       
       return {
         ...icon,

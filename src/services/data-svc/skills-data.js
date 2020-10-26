@@ -56,13 +56,11 @@ export default [
   },
   {
     label: 'Digital Ocean',
-    name: 'DigitalOcean',
     siteUrl: `https://www.digitalocean.com`,
     type: 'cloud'
   },
   {
     label: 'AWS',
-    name: 'Amazon AWS',
     hex: 'FF9900',
     siteUrl: `https://aws.amazon.com`,
     type: 'cloud'

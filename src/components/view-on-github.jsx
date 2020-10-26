@@ -39,7 +39,7 @@ const SourceSpan = styled.span`
 
 export default function ViewOnGithub ({ caption, linkTo }) {
   const { dataSvc } = useAppServices();
-  const { svg } = dataSvc.getSimpleIcon('github') || {};
+  const { svg } = dataSvc.getSimpleIcon('Github') || {};
   
   return (
     <ViewGithubContainer 
