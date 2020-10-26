@@ -1,7 +1,8 @@
 const ExperienceData = {
   stringmasters: {
     title: 'Full Stack Developer (Independent Contractor)',
-    company: 'String Masters - Toronto, ON (Remote)',
+    location: 'Toronto, ON (Remote)',
+    company: 'String Masters',
     dateString: 'Sept. 2019 - Sept. 2020',
     logo: 'SMLogo',
     descriptionItems: [
@@ -15,7 +16,8 @@ const ExperienceData = {
   },
   routethiscontract: {
     title: 'Front End Developer (Independent Contractor)',
-    company: 'RouteThis - Waterloo, ON (Remote)',
+    company: 'RouteThis',
+    location: 'Waterloo, ON (Remote)',
     dateString: 'Apr. 2020 - Aug. 2020',
     logo: 'RouteThisLogo',
     descriptionItems: [
@@ -28,7 +30,8 @@ const ExperienceData = {
   },
   routethis: {
     title: 'Full Stack Developer',
-    company: 'RouteThis - Waterloo, ON (Remote)',
+    company: 'RouteThis',
+    location: 'Waterloo, ON',
     dateString: 'Jan. 2019 - Apr. 2019',
     logo: 'RouteThisLogo',
     descriptionItems: [
@@ -44,7 +47,8 @@ const ExperienceData = {
   },
   td: {
     title: 'Angular Developer',
-    company: 'TD - Waterloo, ON',
+    company: 'TD',
+    location: 'Waterloo, ON',
     dateString: 'Apr. 2018 - Aug. 2018',
     logo: 'TDLogo',
     descriptionItems: [
@@ -58,7 +62,8 @@ const ExperienceData = {
   },
   mlf: {
     title: 'Developer & Designer',
-    company: 'Maple Leaf Foods - Mississauga, ON',
+    company: 'Maple Leaf Foods',
+    location: 'Mississauga, ON',
     dateString: 'Sept. 2017 - Dec. 2017',
     logo: 'MLFLogo',
     descriptionItems: [
