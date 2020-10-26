@@ -1,4 +1,4 @@
-export default {
+const AppThemes = {
   light: {
     name: 'light',
     background: '#fefefe',
@@ -18,4 +18,6 @@ export default {
     separator: '#131b25',
     togglerColor: 'white',
   }
-}
+};
+
+export default AppThemes;

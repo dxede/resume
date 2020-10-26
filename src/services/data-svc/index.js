@@ -1,6 +1,6 @@
-import experienceData from './experience-data';
-import skillsData from './skills-data';
-import SimpleIcons from './icons';
+import ExperienceData from './experience-data';
+import SkillsData from './skills-data';
+import AppIcons from './icons';
 
 export default class DataSvc {
   /**
@@ -37,11 +37,11 @@ export default class DataSvc {
    * @param name The brand you need an icon for.
    */
   getSimpleIcon (name) {
-    return SimpleIcons[name];
+    return AppIcons[name];
   }
 
   get experienceData () {
-    return experienceData;
+    return ExperienceData;
   }
 
   get educationData () {
@@ -54,7 +54,7 @@ export default class DataSvc {
   }
 
   get skillsData () {
-    return skillsData.map(s => {
+    return SkillsData.map(s => {
       const icon = this.getSimpleIcon(s.label) || {};
       
       return {

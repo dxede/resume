@@ -1,4 +1,4 @@
-export default {
+const ExperienceData = {
   stringmasters: {
     title: 'Full Stack Developer (Independent Contractor)',
     company: 'String Masters - Toronto, ON (Remote)',
@@ -71,3 +71,5 @@ export default {
     till: null,
   },
 }
+
+export default ExperienceData;

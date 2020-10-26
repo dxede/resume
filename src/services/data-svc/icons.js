@@ -15,7 +15,7 @@ import EmberJS from 'simple-icons/icons/ember-dot-js';
 import AWS from 'simple-icons/icons/amazonaws';
 import DigitalOcean from 'simple-icons/icons/digitalocean';
 
-export default {
+const AppIcons = {
   Typescript,
   Javascript, 
   Python, 
@@ -33,3 +33,5 @@ export default {
   'Digital Ocean': DigitalOcean,
   'Ember.js': EmberJS
 };
+
+export default AppIcons;

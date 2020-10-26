@@ -1,4 +1,4 @@
-import appThemes from './themes';
+import AppThemes from './themes';
 
 
 
@@ -16,7 +16,7 @@ export default class StyleSvc {
   };
 
   constructor () {
-    this.setActiveTheme(appThemes.light);
+    this.setActiveTheme(AppThemes.light);
     this.setSystemTheme();
   }
 
@@ -26,12 +26,12 @@ export default class StyleSvc {
 
   setSystemTheme () {
     if (window && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      this.setActiveTheme(appThemes.dark);
+      this.setActiveTheme(AppThemes.dark);
 
       window
       .matchMedia('(prefers-color-scheme: dark)')
       .addEventListener('change', e => {
-        this.setActiveTheme(e.matches ? appThemes.dark : appThemes.light);
+        this.setActiveTheme(e.matches ? AppThemes.dark : AppThemes.light);
       });
     }
   }
@@ -44,7 +44,7 @@ export default class StyleSvc {
   }
 
   toggleActiveTheme () {
-    this.setActiveTheme(this.isDarkMode ? appThemes.light : appThemes.dark);
+    this.setActiveTheme(this.isDarkMode ? AppThemes.light : AppThemes.dark);
     return this.activeTheme;
   }
 }

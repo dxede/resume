@@ -1,4 +1,4 @@
-export default [
+const SkillsData = [
   {
     label: 'Javascript',
     siteUrl: `https://javascript.info`,
@@ -66,3 +66,5 @@ export default [
     type: 'cloud'
   },
 ];
+
+export default SkillsData;
