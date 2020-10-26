@@ -25,7 +25,7 @@ const AvatarImage = styled.img`
 export default function EdedeAvatar({ width, height, ...rest }) {
   return (
     <AvatarImageContainer { ...rest } width={width} height={height}>
-      <AvatarImage rel="preload" alt='Edede Oiwoh' src={process.env.REACT_APP_AVATAR_URL} />
+      <AvatarImage loading="eager" rel="preload" alt='Edede Oiwoh' src={process.env.REACT_APP_AVATAR_URL} />
     </AvatarImageContainer>
   )
 }
