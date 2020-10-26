@@ -3,10 +3,11 @@
   "version": "1.2.1",
   "private": true,
   "dependencies": {
+    "firebase": "^7.24.0",
     "framer-motion": "^2.7.7",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "^3.4.3",
+    "react-scripts": "^4.0.0",
     "release-it": "^14.0.4",
     "simple-icons": "^3.11.0",
     "styled-components": "^5.2.0"
