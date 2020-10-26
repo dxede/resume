@@ -8,6 +8,8 @@ export default function EducationSection() {
       title="Education"
       fetchFunctionName="fetchEducationData"
       mapFunc={item => <ExperienceItem key={item.title} center noAnimation item={item} imageWidth='5em' />}
+      skeletonCount={1}
+      useCenteredSkeleton={true}
     />
   )
 }

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { descriptionVariants, headerVariants } from './variants';
+import { descriptionVariants, headerVariants } from './variants.js';
 import { 
   ExperienceItemContainer, 
   ExperienceItemHeader,
