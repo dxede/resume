@@ -53,7 +53,7 @@ export default class DataSvc {
    * @param callback A callback function which takes in the remote data.
    */
   async fetchRemoteData (collectionName, callback = null) {
-    const retrieverFunction = async () => await this.db.retrieveFromFirestore(collectionName);
+    const retrieverFunction = async () => await this.db.retrieveCollectionDocuments(collectionName);
     let fallbackData;
 
     switch (collectionName) {

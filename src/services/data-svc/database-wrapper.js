@@ -17,7 +17,7 @@ export default class DatabaseWrapper {
    * @param collectionName The Firestore collection name
    * @param useCache Optionally disable caching
    */
-  async retrieveFromFirestore(collectionName, useCache = true) {
+  async retrieveCollectionDocuments(collectionName, useCache = true) {
     if (useCache && this.cache[collectionName]) {
       return this.cache[collectionName];
     } else {
