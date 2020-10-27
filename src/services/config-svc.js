@@ -25,6 +25,5 @@ function configureFirebase () {
 }
 
 export const settings = {
-  serverHost: env.REACT_APP_SERVER_HOST,
-  loggingEnabled: env.REACT_APP_LOGGING_ENABLED
+  loggingEnabled: /true/i.test(env.REACT_APP_LOGGING_ENABLED)
 }
