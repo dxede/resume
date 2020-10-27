@@ -3,7 +3,8 @@ import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 import {
   MotionConfig,
   AnimationFeature
-} from "framer-motion"
+} from "framer-motion";
+import { Sun, Moon } from 'phosphor-react';
 import Nav from './components/nav';
 import Banner from './components/banner';
 import SkillsSection from './sections/skills';
@@ -11,7 +12,6 @@ import ExperienceSection from './sections/experience';
 import EducationSection from './sections/education';
 import ViewOnGithub from './components/view-on-github';
 import useAppServices from './hooks/use-app-services';
-import { PaletteIcon } from './components/icons';
 
 const GlobalStyles = createGlobalStyle`
   html {
@@ -40,8 +40,8 @@ const ThemeToggleButton = styled.button`
   }
   
   svg {
-    fill: ${({ theme }) => theme.togglerColor};
-    width: 1em;
+    color: ${({ theme }) => theme.togglerColor};
+    width: 1.5em;
     opacity: 0.5;
 
     &:hover {
@@ -55,6 +55,7 @@ const ThemeToggleButton = styled.button`
 function App() {
   const { stylesSvc } = useAppServices();
   const [theme, setTheme] = useState(stylesSvc.activeTheme);
+  const isLightTheme = theme.name === 'light';
 
   return (
     <div className="App">
@@ -65,7 +66,9 @@ function App() {
           title="Change the theme"
           onClick={() => setTheme(stylesSvc.toggleActiveTheme())}
         >
-          <PaletteIcon />
+          {isLightTheme ? 
+            <Moon size="1.5em" /> : <Sun size="1.5em" />
+          }
         </ThemeToggleButton>
         
         <MotionConfig features={[AnimationFeature]}>

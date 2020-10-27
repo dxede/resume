@@ -4,7 +4,7 @@ import { listItemVariant, listVariant } from './variants.js'
 import DangerousHTML from '../../components/dangerousHTML';
 import ProvisionedSection from '../../components/provisioned-section';
 
-export default function SkillsSection() {
+function SkillsSection() {
   return (
     <ProvisionedSection
       title="Skills"
@@ -35,3 +35,5 @@ export default function SkillsSection() {
     />
   )
 }
+
+export default React.memo(SkillsSection);
