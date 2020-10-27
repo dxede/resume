@@ -23,3 +23,7 @@ function configureFirebase () {
   
   firebase.analytics();
 }
+
+export const settings = {
+  loggingEnabled: /true/i.test(env.REACT_APP_LOGGING_ENABLED)
+}

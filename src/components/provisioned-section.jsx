@@ -5,7 +5,7 @@ const SkillSkeletonList = lazy(() => import('../sections/skills/skeleton'));
 const ExperienceItemSkeleton = lazy(() => import('./experience-item/skeleton')) ;
 const Section = lazy(() => import('./section'));
 
-function createSkeletons (length, useCenteredSkeleton = false) {
+function createExperienceItemSkeletons (length, useCenteredSkeleton = false) {
   return (
     <CustomSuspense>
       {
@@ -44,7 +44,7 @@ export default function ProvisionedSection({
           data.length > 0 ? content : 
           useSkillsSkeletons ? 
             <SkillSkeletonList count={skeletonCount} /> : 
-            createSkeletons(skeletonCount, useCenteredSkeleton)
+            createExperienceItemSkeletons(skeletonCount, useCenteredSkeleton)
           }
       </Section>
     </CustomSuspense>

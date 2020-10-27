@@ -1,7 +1,9 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
+import 'firebase/functions';
+import { settings } from '../config-svc';
 
-export default class DatabaseWrapper {
+export class DatabaseWrapper {
   db = firebase.firestore();
 
   cache = {
@@ -23,10 +25,28 @@ export default class DatabaseWrapper {
     } else {
       const data = (await this.db.collection(collectionName)
         .where('visible', '==', true)
-        .orderBy('ordinal')
+        .orderBy('ordinasl')
         .get()).docs.map(doc => doc.data());
       this.cache[collectionName] = data;
       return data;
+    }
+  }
+}
+
+export class ServiceApi {
+  api = firebase.functions();
+
+  async logSiteError(error) {
+    if (settings.loggingEnabled) {
+      try {
+        const logSiteError = this.api.httpsCallable('logSiteError');
+        await logSiteError({
+          ...error,
+          message: error.message
+        });
+      } catch (error) {
+        // Do nothing
+      }
     }
   }
 }

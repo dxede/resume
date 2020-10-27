@@ -25,6 +25,8 @@
 .firebaserc
 firebase.*
 firestore.*
+dede-resume-*.json
+functions/lib
 
 npm-debug.log*
 yarn-debug.log*
