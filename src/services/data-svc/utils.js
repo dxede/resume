@@ -25,7 +25,7 @@ export class DatabaseWrapper {
     } else {
       const data = (await this.db.collection(collectionName)
         .where('visible', '==', true)
-        .orderBy('ordinasl')
+        .orderBy('ordinal')
         .get()).docs.map(doc => doc.data());
       this.cache[collectionName] = data;
       return data;
