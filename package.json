@@ -40,8 +40,7 @@
   },
   "release-it": {
     "hooks": {
-      "before:init": "npm run build",
-      "after:release": "firebase deploy --only hosting"
+      "before:init": "npm run build"
     }
   },
   "devDependencies": {

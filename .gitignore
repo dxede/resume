@@ -24,6 +24,7 @@
 .firebase
 .firebaserc
 firebase.*
+firebase-*.*
 firestore.*
 dede-resume-*.json
 functions/lib
