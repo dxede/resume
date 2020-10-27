@@ -15,7 +15,7 @@ const AppThemes = {
     background: 'linear-gradient(180deg,rgb(33 33 33),rgb(8 8 8),rgb(10 10 10))',
     color: 'rgb(234 234 234)',
     footerColor: '#808080',
-    nav: 'linear-gradient(180deg, #080a13, 95%, #090b19cc)',
+    nav: 'linear-gradient(180deg,#171616,95%,#161616)',
     separator: '#232323',
     togglerColor: 'white',
     skeletonBase: 'rgba(255,255,255, 0.1)'
