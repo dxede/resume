@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-export function DownloadIcon () {
+export default function DownloadIcon () {
   return (
     <svg 
       aria-hidden="true"

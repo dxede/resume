@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { m as motion } from 'framer-motion';
-import { DownloadIcon } from './icons';
+import DownloadIcon from './download-icon';
 import DangerousHTML from './dangerousHTML';
 import useAppServices from '../hooks/use-app-services';
 

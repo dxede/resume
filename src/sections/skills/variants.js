@@ -12,11 +12,12 @@ export const listItemVariant = {
     x: 0,
     scale: 1,
     transition: {
-      y: { stiffness: 1000, velocity: -100 },
-      x: { stiffness: 1000, velocity: -100 },
+      duration: 0.05,
+      y: { stiffness: 4000, velocity: -100 },
+      x: { stiffness: 4000, velocity: -100 },
       scale: {
         type: 'spring',
-        velocity: 5,
+        velocity: 10,
       }
     }
   }

@@ -4,13 +4,14 @@ import {
   MotionConfig,
   AnimationFeature
 } from "framer-motion";
-import { Sun, Moon } from 'phosphor-react';
 import Nav from './components/nav';
 import Banner from './components/banner';
 import SkillsSection from './sections/skills';
 import ExperienceSection from './sections/experience';
 import EducationSection from './sections/education';
 import ViewOnGithub from './components/view-on-github';
+import Sun from './components/sun';
+import Moon from './components/moon';
 import useAppServices from './hooks/use-app-services';
 
 const GlobalStyles = createGlobalStyle`
