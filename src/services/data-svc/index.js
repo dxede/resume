@@ -1,8 +1,13 @@
 import ExperienceData from './experience-data';
 import SkillsData from './skills-data';
+import EducationData from './education-data';
 import AppIcons from './icons';
+import { DatabaseWrapper, ServiceApi } from './utils';
 
 export default class DataSvc {
+  db = new DatabaseWrapper();
+  api = new ServiceApi();
+
   /**
    * Social Sharing Links used site wide
    */
@@ -40,28 +45,78 @@ export default class DataSvc {
     return AppIcons[name];
   }
 
-  get experienceData () {
-    return ExperienceData;
-  }
+  /**
+   * Get data from a Firestore collection.
+   * 
+   * If a callback is provided, the callback is called without returning the data.
+   * 
+   * @param collectionName The collection which contains the data.
+   * @param callback A callback function which takes in the remote data.
+   */
+  async fetchRemoteData (collectionName, callback = null) {
+    const retrieverFunction = async () => await this.db.retrieveCollectionDocuments(collectionName);
+    let fallbackData;
 
-  get educationData () {
-    return {
-      title: 'BSc in Honors Geomatics with Computer Science Minor',
-      company: 'University of Waterloo',
-      logo: 'UWaterlooLogo',
-      dateString: 'Sept. 2015 - Apr. 2020',
-    };
-  }
+    switch (collectionName) {
+      case 'experience':
+        fallbackData = ExperienceData;
+        break;
+      case 'education':
+        fallbackData = EducationData;
+        break;
+      case 'skills':
+        fallbackData = SkillsData;
+        break;
+      default:
+        break;
+    }
 
-  get skillsData () {
-    return SkillsData.map(s => {
-      const icon = this.getSimpleIcon(s.label) || {};
-      
-      return {
-        ...icon,
-        ...s,
-        logo: this.makeSimpleIconURL(icon.slug),
+    if (!retrieverFunction) {
+      console.error(`Collection "${collectionName}" does not exist.`);
+      return;
+    } else {
+      let data;
+
+      try {
+        data = await retrieverFunction();
+      } catch (error) {
+        // Bury error and replace with hardcoded fallback
+        data = Object.keys(fallbackData).map(key => fallbackData[key]);
+        this.api.logSiteError(error);
       }
-    });
+
+      if (callback) {
+        callback(data);
+      } else {
+        return data;
+      }  
+    }
+  }
+
+  async fetchExperienceData (callback = null) {
+    return await this.fetchRemoteData('experience', callback);
+  }
+
+  async fetchEducationData (callback = null) {
+    return await this.fetchRemoteData('education', callback);
+  }
+
+  async fetchSkillsData (callback = null) {
+    const data = (await this.fetchRemoteData('skills'))
+      .map(s => {
+        const icon = this.getSimpleIcon(s.label) || {};
+        
+        return {
+          ...icon,
+          ...s,
+          logo: this.makeSimpleIconURL(icon.slug),
+        }
+      });
+    
+    if (callback) {
+      callback(data);
+    } else {
+      return data;
+    }
   }
 }

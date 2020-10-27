@@ -34,3 +34,14 @@ export const headerVariants = {
     }
   }
 }
+
+export const skeletonVariant = {
+  pulse: {
+    opacity: 0.25,
+    transition: {
+      duration: 2,
+      staggerChildren: 0.5, 
+      yoyo: Infinity
+    }
+  }
+}

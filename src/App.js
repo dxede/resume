@@ -4,7 +4,6 @@ import {
   MotionConfig,
   AnimationFeature
 } from "framer-motion"
-import configureApp from './services/config-svc';
 import Nav from './components/nav';
 import Banner from './components/banner';
 import SkillsSection from './sections/skills';
@@ -13,8 +12,6 @@ import EducationSection from './sections/education';
 import ViewOnGithub from './components/view-on-github';
 import useAppServices from './hooks/use-app-services';
 import { PaletteIcon } from './components/icons';
-
-configureApp();
 
 const GlobalStyles = createGlobalStyle`
   html {

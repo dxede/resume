@@ -8,6 +8,7 @@ const AppThemes = {
     nav: '#fbfbfb',
     separator: '#e8e8e8d9',
     togglerColor: '#adadad',
+    skeletonBase: 'rgba(0,0,0, 0.05)'
   },
   dark: {
     name: 'dark',
@@ -17,6 +18,7 @@ const AppThemes = {
     nav: 'linear-gradient(180deg, #080a13, 95%, #090b19cc)',
     separator: '#131b25',
     togglerColor: 'white',
+    skeletonBase: 'rgba(255,255,255, 0.1)'
   }
 };
 

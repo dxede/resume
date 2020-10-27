@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { descriptionVariants, headerVariants } from './variants';
+import { descriptionVariants, headerVariants } from './variants.js';
 import { 
   ExperienceItemContainer, 
   ExperienceItemHeader,
@@ -19,7 +19,7 @@ import useAppServices from '../../hooks/use-app-services';
 export default function ExperienceItem({item, noAnimation, center, imageWidth}) {
   const { assetSvc } = useAppServices();
   const [isShowingDescription, setIsShowingDescription] = useState(false);
-  const {title, company, dateString, descriptionItems, logo } = item;
+  const {title, company, dateString, descriptionItems, logo, location } = item;
 
   return (
     <ExperienceItemContainer
@@ -39,7 +39,7 @@ export default function ExperienceItem({item, noAnimation, center, imageWidth}) 
       >
         <ExperienceItemHeaderText>
           <ExperienceItemTitle>{title}</ExperienceItemTitle>
-          <ExperienceItemCompany>{company}</ExperienceItemCompany>
+          <ExperienceItemCompany>{`${company}${location ? ` - ${location}` : ''}`}</ExperienceItemCompany>
           <ExperienceItemDate>{dateString}</ExperienceItemDate>
         </ExperienceItemHeaderText>
       </ExperienceItemHeader>
