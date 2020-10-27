@@ -2,10 +2,11 @@ import ExperienceData from './experience-data';
 import SkillsData from './skills-data';
 import EducationData from './education-data';
 import AppIcons from './icons';
-import DatabaseWrapper from './database-wrapper';
+import { DatabaseWrapper, ServiceApi } from './utils';
 
 export default class DataSvc {
   db = new DatabaseWrapper();
+  api = new ServiceApi();
 
   /**
    * Social Sharing Links used site wide
@@ -81,6 +82,7 @@ export default class DataSvc {
       } catch (error) {
         // Bury error and replace with hardcoded fallback
         data = Object.keys(fallbackData).map(key => fallbackData[key]);
+        this.api.logSiteError(error);
       }
 
       if (callback) {

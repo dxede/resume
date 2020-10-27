@@ -23,3 +23,8 @@ function configureFirebase () {
   
   firebase.analytics();
 }
+
+export const settings = {
+  serverHost: env.REACT_APP_SERVER_HOST,
+  loggingEnabled: env.REACT_APP_LOGGING_ENABLED
+}
